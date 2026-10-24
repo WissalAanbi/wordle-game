@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Snake Game - Home</title>
+        <meta name="author" content="Wissal Aanbi">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    </head>
+    <body>
+         <form action="play-snake-game.html" method="GET">
+            <label for="player">Player Name:</label>
+            <input type="text" id="player" name="player" placeholder="Enter your name" required>
+            <button type="submit">Play Snake</button>
+         </form>
+
+        <aside id="high-scores">
+            <h2>High Scores</h2>
+            <ol id="scores-list"></ol>
+        </aside>
+
+        <script src="js/script.js"></script>
+        <script>
+            window.addEventListener("DOMContentLoaded", init_high_scores);
+        </script>
+    </body>
+</html>

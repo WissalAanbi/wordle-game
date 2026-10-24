@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Russo+One&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-color: #9c2a5e;
+    color: #ffffff;
+
+    display: grid;
+    min-height: 100vh;
+    grid-template-areas: "header"
+                         "nav"
+                         "main"
+                         "aside"
+                         "footer";
+
+    grid-template-rows: auto auto 1fr auto auto;
+}
+
+header {
+    grid-area: header;
+    padding: 1rem;
+    background-color: #ffe3fe;
+    border-bottom: 3px solid #ffffff;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+header .logo {
+    height: 75px;
+    width: auto;
+    display: block;
+}
+
+header h1 {
+    font-family: 'Russo One', sans-serif;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #ffe3fe;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px #4a0d2e;
+
+    text-shadow: 3px 3px 0px #9c2a5e;
+    margin: 0;
+}
+
+nav {
+    background-color: #f8bdd7;
+    grid-area: nav;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    color: #4a0d2e;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 3px 0px #9c2a5e;
+    transition: all 0.2s ease-in-out;
+}
+
+nav a:hover {
+    background-color: #9c2a5e;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0px #4a0d2e;
+}
+
+nav .dropdown {
+    position: relative;
+}
+
+nav .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fbe3ed;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+    z-index: 10;
+}
+
+nav .dropdown-menu li {
+    width: 100%;
+}
+
+nav .dropdown-menu li a {
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    color: #333;
+    text-align: center;
+}
+
+nav .dropdown-menu li a:hover {
+    background-color: #9c2a5e;
+    color: white;
+}
+
+nav .dropdown:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    grid-area: main;
+    padding: 1.5rem;
+    color: #ffffff;
+}
+
+main h2 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #ffe3fe;
+    text-shadow: 2px 2px 0px #4a0d2e;
+}
+
+main p {
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+main .game p{
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3rem;
+    color: #f8bdd7;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+main .player, .score, .health {
+    font-family: 'Fredoka', sans-serif;
+    color: #f8bdd7;
+}
+
+footer .time{
+    font-family: 'Fredoka', sans-serif;
+    color: #f8bdd7;
+}
+
+.wrapper {
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.box1 {
+    width: 250px;
+    height: 180px;
+    flex-shrink: 0;
+}
+
+.box1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.box2 {
+    flex-grow: 1;
+    max-width: 260px;
+}
+
+.box2 form {
+    background-color: #fbe3ed;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.box2 label {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #4a0d2e;
+    text-transform: uppercase;
+}
+
+.box2 input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid #9c2a5e;
+    outline: none;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.box2 input:focus {
+    border-color: #ff0099;
+    background-color: white;
+}
+
+.box2 button {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: #9c2a5e;
+    color: white;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+}
+
+.box2 button:hover {
+    background-color: #ff0099;
+}
+
+main h3 {
+    font-family: 'Russo One', sans-serif;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #ffe3fe;
+}
+
+ol {
+    padding-left: 1.2rem;
+    line-height: 1.6;
+}
+
+ol li {
+    margin-bottom: 0.5rem;
+}
+
+aside {
+    background-color: #f8bdd7;
+    grid-area: aside;
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+aside h3 {
+    font-family: 'Russo One', sans-serif;
+    color: #4a0d2e;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+aside .table-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+aside table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+aside thead {
+    background-color: #9c2a5e;
+    color: white;
+}
+
+aside th {
+    padding: 12px 8px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+aside td {
+    padding: 10px 8px;
+    color: #333333;
+    font-weight: 600;
+}
+
+aside tbody tr:nth-child(even) {
+    background-color: #fbe3ed;
+}
+
+aside tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+footer {
+    font-size: 14px;
+    text-align: center;
+    grid-area: footer;
+    padding: 1rem;
+    background-color: #ffe3fe;
+    color: #4a0d2e;
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    body {
+        grid-template-areas:
+            "header header header"
+            "nav    main   aside"
+            "footer footer footer";
+        grid-template-columns: minmax(150px, 180px) 1fr minmax(220px, 280px);
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .wrapper {
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    }
+}
+
+main, aside, nav {
+    min-width: 0;
+}
+
+main canvas,
+main .game {
+    max-width: 100%;
+    height: auto;
+}

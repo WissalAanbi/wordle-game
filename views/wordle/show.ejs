@@ -1,0 +1,37 @@
+        <% wordle.attempts.forEach(function(attempt, index) { %>
+    <p class="guess<%= (wordle.won && index === wordle.attempts.length - 1) ? ' won' : '' %>">
+        <% attempt.feedback.forEach(function(item) { %>
+            <span class="<%= item.color %>"><%= item.char %></span>
+        <% }); %>
+    </p>
+<% }); %>
+
+  <% if (wordle.won) { %>
+    <p class="message">You won!</p>
+  <% } else if (wordle.done) { %>
+    <p class="message">You lost! the secret word was: <%= wordle.word %></p>
+  <% } %>
+
+  <% if (typeof definition !== 'undefined' && definition) { %>
+    <p class="definition">Definition of the secret word: <%= definition %></p>
+  <% } %>
+
+  <% if (!wordle.done && !wordle.won) { %>
+  <form action="/wordle/<%= wordle.id %>/guess" method="POST">
+    <label for="guess">Guess:</label>
+    <input type="text" name="guess" required autofocus>
+    <button type="submit">Try</button>
+  </form>
+  <% } %>
+       <% if (wordle.won || wordle.done) { %>
+  <form action="/wordle" method="POST">
+    <button type="submit">Play another round</button>
+  </form>
+  <% } %>
+  <% if (typeof error !== 'undefined' && error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+
+  <% if (typeof message !== 'undefined' && message) { %>
+    <p class="message"><%= message %></p>
+  <% } %>

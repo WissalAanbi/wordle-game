@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Typing Game</title>
+    <link rel="stylesheet" href="css/play-typing-game.css">
+</head>
+<body onload="init_typing_game()">
+    <main>
+        <header>
+            <p class="player">Player Name: <span>Student Name</span></p>
+            <p class="score">Score: <span>000000</span></p>
+            <p class="health">Health: <span>100%</span></p>
+        </header>
+        <section class="game">
+           <p><code class="challenge"></code></p>
+           <input id="txt" type="text"/>
+        </section>
+        <section class="actions">
+            <button data-action="start">Start</button>
+            <button data-action="pause">Pause</button>
+            <button data-action="save">Save</button>
+            <button data-action="quit">Quit</button>
+            <button data-action="next">Next</button>
+        </section>
+        <footer>
+            <p class="level">Level: <span>000</span></p>
+            <p class="time">Elapsed Time: <span>00:00:00</span></p>
+        </footer>
+    </main>
+
+    <script src="js/play-typing-game.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

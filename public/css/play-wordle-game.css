@@ -1,0 +1,27 @@
+.guess span {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 0.25em;
+    width: 1em;
+    margin: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .guess span.ok {
+    background-color: rgb(0, 164, 0);
+  }
+
+  .guess span.error {
+    background-color: rgb(177, 182, 187)
+  }
+
+  .guess span.swapped {
+    background-color: rgb(255, 208, 0);
+  }
+
+  .guess.won span {
+    border: 3px solid darkgreen;
+    font-weight: bold;
+  }

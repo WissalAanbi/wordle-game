@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game page</title>
+
+    <link rel="stylesheet" href="css/play.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/play-mobile.css" media="screen and (max-width: 767px)">
+
+</head>
+
+<body>
+    <header>
+        <h1>Tic-Tac-Toe</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="play.html">Play</a></li>
+            <li class="dropdown">
+                    <a href="tic-tac-toe/start.html">Tic-Tac-Toe</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tic-tac-toe/start.html">Start Game</a></li>
+                        <li><a href="tic-tac-toe/move.html">Move</a></li>
+                        <li><a href="tic-tac-toe/win-x.html">Win X</a></li>
+                        <li><a href="tic-tac-toe/win-o.html">Win O</a></li>
+                        <li><a href="tic-tac-toe/tie.html">Tie</a></li>
+                    </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <p class="player">Player 1: <span>User</span></p>
+            <p class="score">POINTS: <span>0 - 0</span></p>
+            <p class="health">Player 2: <span>Guest</span></p>
+        </header>
+
+        <section class="game">
+            <p>Game board</p>
+            <canvas></canvas>
+        </section>
+
+        <section class="actions">
+            <button data-action="start">start</button>
+            <button data-action="save">save</button>
+            <button data-action="quit">quit</button>
+        </section>
+
+        <footer>
+            <p class="time">Time left: <span>3:00</span></p>
+        </footer>
+    </main>
+
+    <aside>
+        <h3>Details: </h3>
+        <p>Mode: Cyber-Tris 3x3</p>
+        <p>State: loading...</p>
+    </aside>
+
+    <footer>
+    <p>&copy; 2026 Wissal Aanbi. All rights reserved.</p>
+    <p>Last updated: September 2026</p>
+    </footer>
+
+</body>
+
+</html>

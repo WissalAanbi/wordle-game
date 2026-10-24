@@ -1,0 +1,128 @@
+ @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Russo+One&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #9c2a5e;
+    color: #ffffff;
+    font-family: 'Fredoka', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+main {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+main header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffe3fe;
+    color: #4a0d2e;
+    padding: 0.8rem;
+    border-radius: 16px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Russo One', sans-serif;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+}
+
+main header span {
+    color: #ff0099;
+    font-size: 1.2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    color: #4a0d2e;
+    font-weight: 700;
+    text-decoration: none;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 0px #ffe3fe;
+    transition: all 0.2s ease-in-out;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    background-color: #fbe3ed;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0px #ffe3fe;
+}
+
+section.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 45px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.2rem;
+    color: #ffe3fe;
+    text-shadow: 2px 2px 0px #4a0d2e;
+    text-transform: uppercase;
+}
+
+section.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 360px;
+    margin: auto auto;
+    padding: 12px;
+    background-color: #f8bdd7;
+    border-radius: 20px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+section.grid b {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    background-color: #ffffff;
+    color: #4a0d2e;
+    font-family: 'Russo One', sans-serif;
+    font-size: 2.8rem;
+    border-radius: 12px;
+    box-shadow: inset 0 -4px 0px #fbe3ed, 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+section.grid b a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    text-decoration: none;
+    border-radius: 12px;
+}
+
+section.grid b:has(a):hover {
+    background-color: #ffe3fe;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+    transform: scale(0.96);
+}

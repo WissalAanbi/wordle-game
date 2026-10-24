@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="css/play-snake-game.css">
+</head>
+
+<body onload="init_snake_game()">
+    <main>
+        <header>
+            <p class="player">Player Name: <span>Student Name</span></p>
+            <p class="score">Score: <span>000000</span></p>
+            <p class="health">Health: <span>100%</span></p>
+        </header>
+        <section class="game">
+            <canvas></canvas>
+        </section>
+        <section class="actions">
+            <button data-action="start">Start</button>
+            <button data-action="pause">Pause</button>
+            <button data-action="save">Save</button>
+            <button data-action="quit">Quit</button>
+        </section>
+        <footer>
+            <p class="level">Level: <span>000</span></p>
+            <p class="time">Elapsed Time: <span>00:00:00</span></p>
+        </footer>
+    </main>
+
+        <script src="js/script.js"></script>
+        <script src="js/play-snake-game.js"></script>
+
+</body>
+
+</html>

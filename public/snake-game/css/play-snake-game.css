@@ -1,0 +1,144 @@
+main {
+    background: black;
+    color: white;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+main * {
+    font-family: "Fira Sans";
+}
+
+main header, main footer {
+    display: flex;
+    flex-direction: row;
+}
+
+main header p, main footer p {
+    flex: 1;
+    color: lightgrey;
+}
+
+main header p.player {
+    text-align: left;
+}
+
+main header p.score {
+    text-align: center;
+}
+
+main header p.health {
+    text-align: right;
+}
+
+main p span {
+    font-weight: bold;
+    font-size: 2em;
+    display: block;
+    color: white;
+}
+
+main footer p.level {
+    text-align: left;
+}
+
+main footer p.time {
+    text-align: right;
+}
+
+main section.game {
+    text-align: center;
+}
+
+main section.game canvas {
+    width: 1024px;
+    height: 512px;
+    border: 1px dashed lightgray;
+}
+
+main section.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+main section.actions button {
+    font-size: 2.5em;
+    font-weight: bold;
+    padding: 0.5em;
+    border-radius: 50%;
+    width: 4.5em;
+    height: 4.5em;
+    text-transform: uppercase;
+    transform: rotate(-30deg) scale(0.5);
+    transform-origin: 50% 50%;
+    color: black;
+    transition: transform 1s, color 2s;
+}
+
+main section.actions button:hover {
+    box-shadow: 0 0 1em white;
+    transform: rotate(30deg) scale(1);
+    color: white;
+}
+
+main section.actions button:focus {
+    border-color: white;
+}
+
+main section.actions button[data-action="start"] {
+    background: rgb(28, 199, 28);
+}
+
+main section.actions button[data-action="save"] {
+    background: rgb(227, 192, 20);
+}
+
+main section.actions button[data-action="quit"] {
+    background: rgb(136, 0, 0);
+}
+
+.playing button[data-action="start"] {
+    opacity: 0;
+}
+
+.playing main {
+    background-color: transparent;
+}
+
+.playing {
+    background-color: black;
+}
+
+@keyframes steam {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.playing main:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094,
+            #0000ff, #00ff00, #ffff00, #ff0000);
+    background-size: 400%;
+    width: 1040px;
+    height: 600px;
+    z-index: -1;
+    animation: steam 60s linear infinite;
+    margin-inline: auto;
+}
+
+.playing main:before {
+    filter: blur(200px);
+}

@@ -1,0 +1,50 @@
+body{counter-reset:html-errors}
+body :is(img:not([alt]),img:not([src]),video:not(:has(source)),audio:not(:has(source)),a[target="_blank"]:not([rel*="noopener"]),a[href=""],a[href="#"],a[name]:not([id]),a :is(button,a,input,select,textarea),label:not([for]):not(:has(input)),button:empty:not(:has(*)),ol > :not(li):not(script):not(template),ul > :not(li):not(script):not(template),table > :is(td,th,tr),tr > :not(td):not(th),td > table,div.footer,div.header,div.section,div.article,div.main,div.nav,div.navigation,div.sidebar,form:not([action]),form:not([method]),form:not(:has([type="submit"])):not([onsubmit]),input:not([type]),h2:has(+ h1),h3:has(+ h2),h3:has(+ h1),div > br:only-child,[class=""],[id=""],:is(p,h1,h2,h3,h4,h5,h6,li):empty,a[href^="javascript:"],form[action^="javascript:"],[onclick][href="#"]){counter-increment:html-errors;position:relative;outline:3px dashed crimson}
+body :is(img:not([alt])){--msg:"<img> missing alt"}
+body :is(img:not([src])){--msg:"<img> missing src"}
+body :is(video:not(:has(source))){--msg:"<video> without <source>"}
+body :is(audio:not(:has(source))){--msg:"<audio> without <source>"}
+body :is(a[target="_blank"]:not([rel*="noopener"])){--msg:"target=_blank without rel=noopener"}
+body :is(a[href=""]){--msg:"empty href"}
+body :is(a[href="#"]){--msg:"placeholder link"}
+body :is(a[name]:not([id])){--msg:"legacy anchor name without matching id"}
+body :is(a :is(button,a,input,select,textarea)){--msg:"nested interactive"}
+body :is(label:not([for]):not(:has(input))){--msg:"unassociated label"}
+body :is(button:empty:not(:has(*))){--msg:"empty button"}
+body :is(ol > :not(li):not(script):not(template)){--msg:"invalid ol child"}
+body :is(ul > :not(li):not(script):not(template)){--msg:"invalid ul child"}
+body :is(table > :is(td,th,tr)){--msg:"direct table child (browser inserted tbody or broken markup)"}
+body :is(tr > :not(td):not(th)){--msg:"invalid tr child"}
+body :is(td > table){--msg:"layout-table smell (table inside td)"}
+body :is(div.footer){--msg:"use <footer> instead"}
+body :is(div.header){--msg:"use <header> instead"}
+body :is(div.section){--msg:"use <section> instead"}
+body :is(div.article){--msg:"use <article> instead"}
+body :is(div.main){--msg:"use <main> instead"}
+body :is(div.nav){--msg:"use <nav> instead"}
+body :is(div.navigation){--msg:"use <nav> instead"}
+body :is(div.sidebar){--msg:"use <sidebar> instead"}
+body :is(form:not([action])){--msg:"<form> missing action"}
+body :is(form:not([method])){--msg:"<form> missing method"}
+body :is(form:not(:has([type="submit"])):not([onsubmit])){--msg:"form with no submit mechanism"}
+body :is(input:not([type])){--msg:"input without explicit type"}
+body :is(h2:has(+ h1)){--msg:"heading order backwards"}
+body :is(h3:has(+ h2)){--msg:"heading order backwards"}
+body :is(h3:has(+ h1)){--msg:"heading order backwards"}
+body :is(div > br:only-child){--msg:"br hack"}
+body :is([class=""]){--msg:"empty class attribute"}
+body :is([id=""]){--msg:"empty id attribute"}
+body :is(:is(p,h1,h2,h3,h4,h5,h6,li):empty){--msg:"empty text element"}
+body :is(a[href^="javascript:"]){--msg:"javascript: link"}
+body :is(form[action^="javascript:"]){--msg:"javascript: form action"}
+body :is([onclick][href="#"]){--msg:"js-behaviour link with dead href"}
+body :is(video:not(:has(source)),audio:not(:has(source)),a[name]:not([id]),table > :is(td,th,tr),td > table,form:not(:has([type="submit"])):not([onsubmit]),h2:has(+ h1),h3:has(+ h2),h3:has(+ h1),div > br:only-child,[class=""],:is(p,h1,h2,h3,h4,h5,h6,li):empty,[onclick][href="#"]){outline-color:#e07300}
+body :is(img:not([alt]),img:not([src]),video:not(:has(source)),audio:not(:has(source)),a[target="_blank"]:not([rel*="noopener"]),a[href=""],a[href="#"],a[name]:not([id]),a :is(button,a,input,select,textarea),label:not([for]):not(:has(input)),button:empty:not(:has(*)),ol > :not(li):not(script):not(template),ul > :not(li):not(script):not(template),table > :is(td,th,tr),tr > :not(td):not(th),td > table,div.footer,div.header,div.section,div.article,div.main,div.nav,div.navigation,div.sidebar,form:not([action]),form:not([method]),form:not(:has([type="submit"])):not([onsubmit]),input:not([type]),h2:has(+ h1),h3:has(+ h2),h3:has(+ h1),div > br:only-child,[class=""],[id=""],:is(p,h1,h2,h3,h4,h5,h6,li):empty,a[href^="javascript:"],form[action^="javascript:"],[onclick][href="#"])::after{content:var(--msg);position:absolute;left:0;top:-1.7em;z-index:2147483646;
+  width:max-content;max-width:34ch;font:bold 12px/1.35 ui-monospace,monospace;color:#fff;background:inherit;
+  padding:2px 7px;border-radius:3px;white-space:normal;pointer-events:none}
+body :is(video:not(:has(source)),audio:not(:has(source)),a[name]:not([id]),table > :is(td,th,tr),td > table,form:not(:has([type="submit"])):not([onsubmit]),h2:has(+ h1),h3:has(+ h2),h3:has(+ h1),div > br:only-child,[class=""],:is(p,h1,h2,h3,h4,h5,h6,li):empty,[onclick][href="#"])::after{background:#e07300}
+body:has(:is(img:not([alt]),img:not([src]),video:not(:has(source)),audio:not(:has(source)),a[target="_blank"]:not([rel*="noopener"]),a[href=""],a[href="#"],a[name]:not([id]),a :is(button,a,input,select,textarea),label:not([for]):not(:has(input)),button:empty:not(:has(*)),ol > :not(li):not(script):not(template),ul > :not(li):not(script):not(template),table > :is(td,th,tr),tr > :not(td):not(th),td > table,div.footer,div.header,div.section,div.article,div.main,div.nav,div.navigation,div.sidebar,form:not([action]),form:not([method]),form:not(:has([type="submit"])):not([onsubmit]),input:not([type]),h2:has(+ h1),h3:has(+ h2),h3:has(+ h1),div > br:only-child,[class=""],[id=""],:is(p,h1,h2,h3,h4,h5,h6,li):empty,a[href^="javascript:"],form[action^="javascript:"],[onclick][href="#"]))::after{content:"⚠ " counter(html-errors) " HTML issues"}
+body:not(:has(:is(img:not([alt]),img:not([src]),video:not(:has(source)),audio:not(:has(source)),a[target="_blank"]:not([rel*="noopener"]),a[href=""],a[href="#"],a[name]:not([id]),a :is(button,a,input,select,textarea),label:not([for]):not(:has(input)),button:empty:not(:has(*)),ol > :not(li):not(script):not(template),ul > :not(li):not(script):not(template),table > :is(td,th,tr),tr > :not(td):not(th),td > table,div.footer,div.header,div.section,div.article,div.main,div.nav,div.navigation,div.sidebar,form:not([action]),form:not([method]),form:not(:has([type="submit"])):not([onsubmit]),input:not([type]),h2:has(+ h1),h3:has(+ h2),h3:has(+ h1),div > br:only-child,[class=""],[id=""],:is(p,h1,h2,h3,h4,h5,h6,li):empty,a[href^="javascript:"],form[action^="javascript:"],[onclick][href="#"])))::after{content:"✓ HTML OK"}
+body::after{position:fixed;bottom:12px;right:12px;z-index:2147483647;font:bold 13px ui-monospace,monospace;
+  color:#fff;background:crimson;padding:6px 10px;border-radius:4px;pointer-events:none}
+body:not(:has(:is(img:not([alt]),img:not([src]),video:not(:has(source)),audio:not(:has(source)),a[target="_blank"]:not([rel*="noopener"]),a[href=""],a[href="#"],a[name]:not([id]),a :is(button,a,input,select,textarea),label:not([for]):not(:has(input)),button:empty:not(:has(*)),ol > :not(li):not(script):not(template),ul > :not(li):not(script):not(template),table > :is(td,th,tr),tr > :not(td):not(th),td > table,div.footer,div.header,div.section,div.article,div.main,div.nav,div.navigation,div.sidebar,form:not([action]),form:not([method]),form:not(:has([type="submit"])):not([onsubmit]),input:not([type]),h2:has(+ h1),h3:has(+ h2),h3:has(+ h1),div > br:only-child,[class=""],[id=""],:is(p,h1,h2,h3,h4,h5,h6,li):empty,a[href^="javascript:"],form[action^="javascript:"],[onclick][href="#"])))::after{background:mediumseagreen}

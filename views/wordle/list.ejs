@@ -1,0 +1,63 @@
+<form action="/wordle" method="POST">
+    <button type="submit">Start</button>
+</form>
+
+<p class="stats">
+    Games: <%= stats.total %> |
+    Won: <%= stats.won %> |
+    Lost: <%= stats.lost %> |
+    In progress: <%= stats.active %>
+</p>
+
+<details class="advanced-stats">
+    <summary>Advanced statistics</summary>
+    <h3>Guesses needed per win</h3>
+    <ul>
+        <% Object.keys(histogram).forEach(function(n) { %>
+            <li><%= n %> guess(es): <%= '#'.repeat(histogram[n]) %> <%= histogram[n] %></li>
+        <% }); %>
+    </ul>
+    <h3>Most used guesses</h3>
+    <ol>
+        <% topGuesses.forEach(function(g) { %>
+            <li><%= g[0] %> (<%= g[1] %>)</li>
+        <% }); %>
+    </ol>
+</details>
+
+<% if (typeof error !== 'undefined' && error) { %><p class="error"><%= error %></p><% } %>
+<% if (typeof message !== 'undefined' && message) { %><p class="message"><%= message %></p><% } %>
+
+<form action="/words/en" method="POST">
+    <label for="word">Add a word to the dictionary:</label>
+    <input type="text" name="word" id="word" maxlength="5" required>
+    <button type="submit">Add word</button>
+</form>
+
+<p class="filters">
+    Show:
+    <% [['active','In progress'],['won','Won'],['lost','Lost']].forEach(function(f) { %>
+        <% if (filter === f[0]) { %>
+            <strong><%= f[1] %></strong> (<a href="/wordle">remove filter</a>)
+        <% } else { %>
+            <a href="/wordle?filter=<%= f[0] %>"><%= f[1] %></a>
+        <% } %>
+    <% }); %>
+    <% if (filter) { %> | <a href="/wordle">All</a> <% } %>
+</p>
+
+<ul>
+    <% wordles.forEach(function(wordle) { %>
+        <li>
+            <a href="/wordle/<%= wordle.id %>">
+                Game #<%= wordle.id %> (Attempts: <%= wordle.attempts.length %>)
+            </a>
+
+            <form action="/wordle/<%= wordle.id %>?_method=DELETE"
+                  method="POST"
+                  style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    <% }); %>
+</ul>
